@@ -1,0 +1,901 @@
+******************************************************************************
+                  MSP430 Linker PC v18.12.1                    
+******************************************************************************
+>> Linked Sun Dec  4 02:42:56 2022
+
+OUTPUT FILE NAME:   <ECU Motor.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 0000d4b8
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  SFR                   00000000   00000010  00000000  00000010  RWIX
+  PERIPHERALS_8BIT      00000010   000000f0  00000000  000000f0  RWIX
+  PERIPHERALS_16BIT     00000100   00000100  00000000  00000100  RWIX
+  RAM                   00000200   00000200  0000016a  00000096  RWIX
+  INFOD                 00001000   00000040  00000000  00000040  RWIX
+  INFOC                 00001040   00000040  00000000  00000040  RWIX
+  INFOB                 00001080   00000040  00000000  00000040  RWIX
+  INFOA                 000010c0   00000040  00000000  00000040  RWIX
+  FLASH                 0000c000   00003fde  00001752  0000288c  RWIX
+  BSLSIGNATURE          0000ffde   00000002  00000002  00000000  RWIX  ffff 
+  INT00                 0000ffe0   00000002  00000002  00000000  RWIX
+  INT01                 0000ffe2   00000002  00000000  00000002  RWIX
+  INT02                 0000ffe4   00000002  00000002  00000000  RWIX
+  INT03                 0000ffe6   00000002  00000002  00000000  RWIX
+  INT04                 0000ffe8   00000002  00000000  00000002  RWIX
+  INT05                 0000ffea   00000002  00000002  00000000  RWIX
+  INT06                 0000ffec   00000002  00000002  00000000  RWIX
+  INT07                 0000ffee   00000002  00000002  00000000  RWIX
+  INT08                 0000fff0   00000002  00000002  00000000  RWIX
+  INT09                 0000fff2   00000002  00000002  00000000  RWIX
+  INT10                 0000fff4   00000002  00000002  00000000  RWIX
+  INT11                 0000fff6   00000002  00000002  00000000  RWIX
+  INT12                 0000fff8   00000002  00000002  00000000  RWIX
+  INT13                 0000fffa   00000002  00000002  00000000  RWIX
+  INT14                 0000fffc   00000002  00000002  00000000  RWIX
+  RESET                 0000fffe   00000002  00000002  00000000  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.bss       0    00000200    00000112     UNINITIALIZED
+                  00000200    00000032     uart.obj (.bss:receive_buffer)
+                  00000232    00000032     uart.obj (.bss:transmit_buffer)
+                  00000264    00000014     rti.obj (.bss:callbackCounter)
+                  00000278    00000014     rti.obj (.bss:callbackTime)
+                  0000028c    00000014     rti.obj (.bss:rtiCallback)
+                  000002a0    00000010     comms.obj (.bss:can_a_enviar)
+                  000002b0    00000010     comms.obj (.bss:can_a_recibir)
+                  000002c0    0000000e     bujiaControl.obj (.bss)
+                  000002ce    0000000e     inputCapture.obj (.bss)
+                  000002dc    0000000a     hw_timer.obj (.bss)
+                  000002e6    00000006     motor.obj (.bss)
+                  000002ec    00000006     (.common:can_received)
+                  000002f2    00000005     uart.obj (.bss)
+                  000002f7    00000001     comms.obj (.bss)
+                  000002f8    00000004     pwm.obj (.bss:t_on_copy)
+                  000002fc    00000004     pwm.obj (.bss:t_periodo_copy)
+                  00000300    00000002     bujia.obj (.bss)
+                  00000302    00000002     optoacoplador.obj (.bss)
+                  00000304    00000002     pwm.obj (.bss:t_on_flag)
+                  00000306    00000002     pwm.obj (.bss:t_periodo_flag)
+                  00000308    00000002     (.common:can_to_send)
+                  0000030a    00000002     (.common:phi1)
+                  0000030c    00000002     (.common:phi2)
+                  0000030e    00000001     rti.obj (.bss)
+                  0000030f    00000001     (.common:joystickVal)
+                  00000310    00000001     (.common:rpmCalculadas)
+                  00000311    00000001     (.common:rpmMedidas)
+
+.data      0    00000312    00000008     UNINITIALIZED
+                  00000312    00000004     main.obj (.data)
+                  00000316    00000002     hw_timer.obj (.data:yaInit$1)
+                  00000318    00000001     rti.obj (.data)
+                  00000319    00000001     system.obj (.data)
+
+.stack     0    000003b0    00000050     UNINITIALIZED
+                  000003b0    00000002     rts430_eabi.lib : boot.c.obj (.stack)
+                  000003b2    0000004e     --HOLE--
+
+.text      0    0000c000    00001736     
+                  0000c000    000004ea     hw_timer.obj (.text:hwSetTimer)
+                  0000c4ea    0000010c     gpio.obj (.text:gpioMode)
+                  0000c5f6    000000e6     system.obj (.text:setRTI)
+                  0000c6dc    000000b0     mcp2515.obj (.text:MCP2515_init)
+                  0000c78c    00000092     main.obj (.text:appRun)
+                  0000c81e    00000092     pwm.obj (.text:pwmInit)
+                  0000c8b0    0000008e     bujiaControl.obj (.text:bujiaControlInit)
+                  0000c93e    0000007c     rts430_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  0000c9ba    0000007a     mcp2515.obj (.text:MCP2515_write_id)
+                  0000ca34    00000074     bujiaControl.obj (.text:bujiaControlWrite)
+                  0000caa8    00000066     mcp2515.obj (.text:MCP2515_can_tx0)
+                  0000cb0e    00000066     mcp2515.obj (.text:MCP2515_read_id)
+                  0000cb74    00000064     mcp2515.obj (.text:MCP2515_can_rx0)
+                  0000cbd8    00000060     gpio.obj (.text:gpioWrite)
+                  0000cc38    0000005e     main.obj (.text:appInit)
+                  0000cc96    0000005c     inputCapture.obj (.text:inputCaptureInit)
+                  0000ccf2    00000058     spi.obj (.text:SPI_init)
+                  0000cd4a    00000058     rts430_eabi.lib : div32u.asm.obj (.text)
+                  0000cda2    00000050     inputCapture.obj (.text:rti_Capture_CCR1)
+                  0000cdf2    0000004e     motor.obj (.text:motorUpdate)
+                  0000ce40    0000004c     rts430_eabi.lib : lsr16.asm.obj (.text)
+                  0000ce8c    0000004a     system.obj (.text:setCLK)
+                  0000ced6    00000048     bujiaControl.obj (.text:rti_bujia)
+                  0000cf1e    00000046     mcp2515.obj (.text:MCP2515_write_many_registers)
+                  0000cf64    00000046     rti.obj (.text:recorrerCallbacks)
+                  0000cfaa    00000042     mcp2515.obj (.text:MCP2515_bit_modify)
+                  0000cfec    00000042     rts430_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  0000d02e    00000040     rti.obj (.text:rtiSubmitCallback)
+                  0000d06e    0000003a     comms.obj (.text:commsInit)
+                  0000d0a8    00000038     uart.obj (.text:uart_transmit_rti)
+                  0000d0e0    00000036     mcp2515.obj (.text:MCP2515_write)
+                  0000d116    00000034     mcp2515.obj (.text:MCP2515_read)
+                  0000d14a    00000034     motor.obj (.text:motorInit)
+                  0000d17e    00000032     pwm.obj (.text:pwmWrite)
+                  0000d1b0    00000032     uart.obj (.text:uartInit)
+                  0000d1e2    00000030     mcp2515.obj (.text:MCP2515_CanVariable_init)
+                  0000d212    00000030     comms.obj (.text:Port_1)
+                  0000d242    00000030     hw_timer.obj (.text:hwTimerInit)
+                  0000d272    00000030     uart.obj (.text:uart_receive_rti)
+                  0000d2a2    0000002c     main.obj (.text:getRpmCalculadas)
+                  0000d2ce    0000002c     rts430_eabi.lib : asr16.asm.obj (.text)
+                  0000d2fa    0000002c                     : lsl16.asm.obj (.text)
+                  0000d326    00000026                     : mult32.asm.obj (.text)
+                  0000d34c    00000024     optoacoplador.obj (.text:optoInit)
+                  0000d370    00000024     system.obj (.text:systemInit)
+                  0000d394    00000022     comms.obj (.text:CANSend)
+                  0000d3b6    00000022     mcp2515.obj (.text:MCP2515_reset)
+                  0000d3d8    00000022     bujia.obj (.text:bujiaInit)
+                  0000d3fa    00000020     hw_timer.obj (.text:isr_Timer0_CCR1)
+                  0000d41a    00000020     hw_timer.obj (.text:isr_Timer1_CCR1)
+                  0000d43a    00000020     uart.obj (.text:isr_receive)
+                  0000d45a    00000020     uart.obj (.text:isr_transmit)
+                  0000d47a    00000020     main.obj (.text:sincronizarBujia)
+                  0000d49a    0000001e     optoacoplador.obj (.text:optoUpdate)
+                  0000d4b8    0000001c     rts430_eabi.lib : boot.c.obj (.text:_c_int00_noargs)
+                  0000d4d4    0000001a     hw_timer.obj (.text:isr_Timer0_CCR0)
+                  0000d4ee    0000001a     hw_timer.obj (.text:isr_Timer1_CCR0)
+                  0000d508    0000001a     rti.obj (.text:rti_isr_wdt)
+                  0000d522    00000018     comms.obj (.text:CANReceive)
+                  0000d53a    00000018     comms.obj (.text:CANUnbuildMsg16)
+                  0000d552    00000016     rts430_eabi.lib : div16u.asm.obj (.text)
+                  0000d568    00000016     pwm.obj (.text:update_t_on0)
+                  0000d57e    00000016     pwm.obj (.text:update_t_on1)
+                  0000d594    00000016     pwm.obj (.text:update_t_periodo0)
+                  0000d5aa    00000016     pwm.obj (.text:update_t_periodo1)
+                  0000d5c0    00000014     rts430_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  0000d5d4    00000014                     : mult16.asm.obj (.text)
+                  0000d5e8    00000012                     : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  0000d5fa    00000012                     : memcpy.c.obj (.text:memcpy)
+                  0000d60c    00000010     spi.obj (.text:SPI_transmit)
+                  0000d61c    00000010     hw_timer.obj (.text:hwTimerGetCCR1)
+                  0000d62c    00000010     hw_timer.obj (.text:hwTimerSetCCR0)
+                  0000d63c    00000010     hw_timer.obj (.text:hwTimerSetCCR1)
+                  0000d64c    00000010     inputCapture.obj (.text:rti_Overflow_CCR0)
+                  0000d65c    00000010     rts430_eabi.lib : epilog.asm.obj (.text)
+                  0000d66c    0000000e     comms.obj (.text:CANStatus)
+                  0000d67a    0000000e     mcp2515.obj (.text:MCP2515_clear_rx0)
+                  0000d688    0000000e     bujiaControl.obj (.text:bujiaSetAngle)
+                  0000d696    0000000e     bujia.obj (.text:bujiaUpdate)
+                  0000d6a4    0000000e     motor.obj (.text:writeVelMotor)
+                  0000d6b2    0000000c     comms.obj (.text:CANBuildMsg8)
+                  0000d6be    0000000c     mcp2515.obj (.text:MCP2515_int_clear)
+                  0000d6ca    0000000a     comms.obj (.text:CANUnbuildMsg8)
+                  0000d6d4    0000000a     main.obj (.text:main)
+                  0000d6de    0000000a     optoacoplador.obj (.text:readOpto)
+                  0000d6e8    0000000a     bujia.obj (.text:writeBujia)
+                  0000d6f2    0000000a     motor.obj (.text:writeMotor)
+                  0000d6fc    00000008     rts430_eabi.lib : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
+                  0000d704    00000008     system.obj (.text:stopWDT)
+                  0000d70c    00000006     rts430_eabi.lib : exit.c.obj (.text:abort)
+                  0000d712    00000006     inputCapture.obj (.text:inputCaptureRead)
+                  0000d718    00000006     optoacoplador.obj (.text:readOptoVal)
+                  0000d71e    00000006     uart.obj (.text:uartGetChar)
+                  0000d724    00000006     uart.obj (.text:uartPutChar)
+                  0000d72a    00000006     bujia.obj (.text:writeBujiaVal)
+                  0000d730    00000004     rts430_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  0000d734    00000002                     : startup.c.obj (.text:_system_post_cinit)
+
+.cinit     0    0000d736    0000001c     
+                  0000d736    00000009     (.cinit..data.load) [load image, compression = lzss]
+                  0000d73f    00000001     --HOLE-- [fill = 0]
+                  0000d740    00000006     (__TI_handler_table)
+                  0000d746    00000004     (.cinit..bss.load) [load image, compression = zero_init]
+                  0000d74a    00000008     (__TI_cinit_table)
+
+.binit     0    0000c000    00000000     
+
+.init_array 
+*          0    0000c000    00000000     UNINITIALIZED
+
+TRAPINT    0    0000ffe0    00000002     
+                  0000ffe0    00000002     rts430_eabi.lib : int00.asm.obj (.int00)
+
+PORT1      0    0000ffe4    00000002     
+                  0000ffe4    00000002     comms.obj (.int02)
+
+PORT2      0    0000ffe6    00000002     
+                  0000ffe6    00000002     rts430_eabi.lib : int03.asm.obj (.int03)
+
+ADC10      0    0000ffea    00000002     
+                  0000ffea    00000002     rts430_eabi.lib : int05.asm.obj (.int05)
+
+USCIAB0TX 
+*          0    0000ffec    00000002     
+                  0000ffec    00000002     uart.obj (.int06)
+
+USCIAB0RX 
+*          0    0000ffee    00000002     
+                  0000ffee    00000002     uart.obj (.int07)
+
+TIMER0_A1 
+*          0    0000fff0    00000002     
+                  0000fff0    00000002     hw_timer.obj (.int08)
+
+TIMER0_A0 
+*          0    0000fff2    00000002     
+                  0000fff2    00000002     hw_timer.obj (.int09)
+
+WDT        0    0000fff4    00000002     
+                  0000fff4    00000002     rti.obj (.int10)
+
+COMPARATORA 
+*          0    0000fff6    00000002     
+                  0000fff6    00000002     rts430_eabi.lib : int11.asm.obj (.int11)
+
+TIMER1_A1 
+*          0    0000fff8    00000002     
+                  0000fff8    00000002     hw_timer.obj (.int12)
+
+TIMER1_A0 
+*          0    0000fffa    00000002     
+                  0000fffa    00000002     hw_timer.obj (.int13)
+
+NMI        0    0000fffc    00000002     
+                  0000fffc    00000002     rts430_eabi.lib : int14.asm.obj (.int14)
+
+.reset     0    0000fffe    00000002     
+                  0000fffe    00000002     rts430_eabi.lib : boot.c.obj (.reset)
+
+$fill000   0    0000ffde    00000002     
+                  0000ffde    00000002     --HOLE-- [fill = ffff]
+
+MODULE SUMMARY
+
+       Module                       code   ro data   rw data
+       ------                       ----   -------   -------
+    .\
+       hw_timer.obj                 1470   8         12     
+       mcp2515.obj                  952    0         0      
+       gpio.obj                     364    0         0      
+       bujiaControl.obj             344    0         14     
+       system.obj                   348    0         1      
+       main.obj                     326    0         19     
+       uart.obj                     230    4         105    
+       pwm.obj                      284    0         12     
+       comms.obj                    224    2         33     
+       rti.obj                      160    2         62     
+       inputCapture.obj             194    0         14     
+       motor.obj                    154    0         6      
+       spi.obj                      104    0         0      
+       optoacoplador.obj            82     0         2      
+       bujia.obj                    64     0         2      
+    +--+----------------------------+------+---------+---------+
+       Total:                       5300   16        282    
+                                                            
+    C:\ti\ccs900\ccs\tools\compiler\ti-cgt-msp430_18.12.1.LTS\lib\rts430_eabi.lib
+       copy_decompress_lzss.c.obj   124    0         0      
+       div32u.asm.obj               88     0         0      
+       lsr16.asm.obj                76     0         0      
+       autoinit.c.obj               66     0         0      
+       asr16.asm.obj                44     0         0      
+       lsl16.asm.obj                44     0         0      
+       mult32.asm.obj               38     0         0      
+       boot.c.obj                   28     2         0      
+       div16u.asm.obj               22     0         0      
+       copy_zero_init.c.obj         20     0         0      
+       mult16.asm.obj               20     0         0      
+       copy_decompress_none.c.obj   18     0         0      
+       memcpy.c.obj                 18     0         0      
+       epilog.asm.obj               16     0         0      
+       isr_trap.asm.obj             8      0         0      
+       exit.c.obj                   6      0         0      
+       pre_init.c.obj               4      0         0      
+       int00.asm.obj                0      2         0      
+       int03.asm.obj                0      2         0      
+       int05.asm.obj                0      2         0      
+       int11.asm.obj                0      2         0      
+       int14.asm.obj                0      2         0      
+       startup.c.obj                2      0         0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       642    12        0      
+                                                            
+       Stack:                       0      0         80     
+       Linker Generated:            0      27        0      
+    +--+----------------------------+------+---------+---------+
+       Grand Total:                 5942   55        362    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 0000d74a records: 2, size/record: 4, table size: 8
+	.data: load addr=0000d736, load size=00000009 bytes, run addr=00000312, run size=00000008 bytes, compression=lzss
+	.bss: load addr=0000d746, load size=00000004 bytes, run addr=00000200, run size=00000112 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 0000d740 records: 3, size/record: 2, table size: 6
+	index: 0, handler: __TI_zero_init
+	index: 1, handler: __TI_decompress_lzss
+	index: 2, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+0000004a  ADC10AE0                      
+000001b0  ADC10CTL0                     
+000001b2  ADC10CTL1                     
+00000048  ADC10DTC0                     
+00000049  ADC10DTC1                     
+000001b4  ADC10MEM                      
+000001bc  ADC10SA                       
+00000057  BCSCTL1                       
+00000058  BCSCTL2                       
+00000053  BCSCTL3                       
+0000d70c  C$$EXIT                       
+00000059  CACTL1                        
+0000005a  CACTL2                        
+000010fb  CALBC1_12MHZ                  
+000010f9  CALBC1_16MHZ                  
+000010ff  CALBC1_1MHZ                   
+000010fd  CALBC1_8MHZ                   
+000010fa  CALDCO_12MHZ                  
+000010f8  CALDCO_16MHZ                  
+000010fe  CALDCO_1MHZ                   
+000010fc  CALDCO_8MHZ                   
+0000d6b2  CANBuildMsg8                  
+0000d522  CANReceive                    
+0000d394  CANSend                       
+0000d66c  CANStatus                     
+0000d53a  CANUnbuildMsg16               
+0000d6ca  CANUnbuildMsg8                
+0000005b  CAPD                          
+00000056  DCOCTL                        
+00000128  FCTL1                         
+0000012a  FCTL2                         
+0000012c  FCTL3                         
+00000000  IE1                           
+00000001  IE2                           
+00000002  IFG1                          
+00000003  IFG2                          
+0000d1e2  MCP2515_CanVariable_init      
+0000cfaa  MCP2515_bit_modify            
+0000cb74  MCP2515_can_rx0               
+0000caa8  MCP2515_can_tx0               
+0000d67a  MCP2515_clear_rx0             
+0000c6dc  MCP2515_init                  
+0000d6be  MCP2515_int_clear             
+0000d116  MCP2515_read                  
+0000cb0e  MCP2515_read_id               
+0000d3b6  MCP2515_reset                 
+0000d0e0  MCP2515_write                 
+0000c9ba  MCP2515_write_id              
+0000cf1e  MCP2515_write_many_registers  
+00000022  P1DIR                         
+00000025  P1IE                          
+00000024  P1IES                         
+00000023  P1IFG                         
+00000020  P1IN                          
+00000021  P1OUT                         
+00000027  P1REN                         
+00000026  P1SEL                         
+00000041  P1SEL2                        
+0000002a  P2DIR                         
+0000002d  P2IE                          
+0000002c  P2IES                         
+0000002b  P2IFG                         
+00000028  P2IN                          
+00000029  P2OUT                         
+0000002f  P2REN                         
+0000002e  P2SEL                         
+00000042  P2SEL2                        
+0000001a  P3DIR                         
+00000018  P3IN                          
+00000019  P3OUT                         
+00000010  P3REN                         
+0000001b  P3SEL                         
+00000043  P3SEL2                        
+0000d212  Port_1                        
+0000ccf2  SPI_init                      
+0000d60c  SPI_transmit                  
+00000172  TA0CCR0                       
+00000174  TA0CCR1                       
+00000176  TA0CCR2                       
+00000162  TA0CCTL0                      
+00000164  TA0CCTL1                      
+00000166  TA0CCTL2                      
+00000160  TA0CTL                        
+0000012e  TA0IV                         
+00000170  TA0R                          
+00000192  TA1CCR0                       
+00000194  TA1CCR1                       
+00000196  TA1CCR2                       
+00000182  TA1CCTL0                      
+00000184  TA1CCTL1                      
+00000186  TA1CCTL2                      
+00000180  TA1CTL                        
+0000011e  TA1IV                         
+00000190  TA1R                          
+000010db  TLV_ADC10_1_LEN               
+000010da  TLV_ADC10_1_TAG               
+000010c0  TLV_CHECKSUM                  
+000010f7  TLV_DCO_30_LEN                
+000010f6  TLV_DCO_30_TAG                
+0000005d  UCA0ABCTL                     
+00000062  UCA0BR0                       
+00000063  UCA0BR1                       
+00000060  UCA0CTL0                      
+00000061  UCA0CTL1                      
+0000005f  UCA0IRRCTL                    
+0000005e  UCA0IRTCTL                    
+00000064  UCA0MCTL                      
+00000066  UCA0RXBUF                     
+00000065  UCA0STAT                      
+00000067  UCA0TXBUF                     
+0000006a  UCB0BR0                       
+0000006b  UCB0BR1                       
+00000068  UCB0CTL0                      
+00000069  UCB0CTL1                      
+0000006c  UCB0I2CIE                     
+00000118  UCB0I2COA                     
+0000011a  UCB0I2CSA                     
+0000006e  UCB0RXBUF                     
+0000006d  UCB0STAT                      
+0000006f  UCB0TXBUF                     
+00000120  WDTCTL                        
+00000400  __STACK_END                   
+00000050  __STACK_SIZE                  
+0000d74a  __TI_CINIT_Base               
+0000d752  __TI_CINIT_Limit              
+0000d740  __TI_Handler_Table_Base       
+0000d746  __TI_Handler_Table_Limit      
+0000d6fc  __TI_ISR_TRAP                 
+0000cfec  __TI_auto_init_nobinit_nopinit
+0000c93e  __TI_decompress_lzss          
+0000d5e8  __TI_decompress_none          
+0000ffe0  __TI_int00                    
+0000ffe4  __TI_int02                    
+0000ffe6  __TI_int03                    
+0000ffea  __TI_int05                    
+0000ffec  __TI_int06                    
+0000ffee  __TI_int07                    
+0000fff0  __TI_int08                    
+0000fff2  __TI_int09                    
+0000fff4  __TI_int10                    
+0000fff6  __TI_int11                    
+0000fff8  __TI_int12                    
+0000fffa  __TI_int13                    
+0000fffc  __TI_int14                    
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+0000d5c0  __TI_zero_init_nomemset       
+ffffffff  __c_args__                    
+0000d552  __mspabi_divu                 
+0000cd4a  __mspabi_divul                
+0000d668  __mspabi_func_epilog_1        
+0000d666  __mspabi_func_epilog_2        
+0000d664  __mspabi_func_epilog_3        
+0000d662  __mspabi_func_epilog_4        
+0000d660  __mspabi_func_epilog_5        
+0000d65e  __mspabi_func_epilog_6        
+0000d65c  __mspabi_func_epilog_7        
+0000d5d4  __mspabi_mpyi                 
+0000d5d4  __mspabi_mpyi_sw              
+0000d326  __mspabi_mpyl                 
+0000d326  __mspabi_mpyl_sw              
+0000d552  __mspabi_remu                 
+0000cd4a  __mspabi_remul                
+0000d2fa  __mspabi_slli                 
+0000d322  __mspabi_slli_1               
+0000d310  __mspabi_slli_10              
+0000d30e  __mspabi_slli_11              
+0000d30c  __mspabi_slli_12              
+0000d30a  __mspabi_slli_13              
+0000d308  __mspabi_slli_14              
+0000d306  __mspabi_slli_15              
+0000d320  __mspabi_slli_2               
+0000d31e  __mspabi_slli_3               
+0000d31c  __mspabi_slli_4               
+0000d31a  __mspabi_slli_5               
+0000d318  __mspabi_slli_6               
+0000d316  __mspabi_slli_7               
+0000d314  __mspabi_slli_8               
+0000d312  __mspabi_slli_9               
+0000d2ce  __mspabi_srai                 
+0000d2f6  __mspabi_srai_1               
+0000d2e4  __mspabi_srai_10              
+0000d2e2  __mspabi_srai_11              
+0000d2e0  __mspabi_srai_12              
+0000d2de  __mspabi_srai_13              
+0000d2dc  __mspabi_srai_14              
+0000d2da  __mspabi_srai_15              
+0000d2f4  __mspabi_srai_2               
+0000d2f2  __mspabi_srai_3               
+0000d2f0  __mspabi_srai_4               
+0000d2ee  __mspabi_srai_5               
+0000d2ec  __mspabi_srai_6               
+0000d2ea  __mspabi_srai_7               
+0000d2e8  __mspabi_srai_8               
+0000d2e6  __mspabi_srai_9               
+0000ce40  __mspabi_srli                 
+0000ce86  __mspabi_srli_1               
+0000ce62  __mspabi_srli_10              
+0000ce5e  __mspabi_srli_11              
+0000ce5a  __mspabi_srli_12              
+0000ce56  __mspabi_srli_13              
+0000ce52  __mspabi_srli_14              
+0000ce4e  __mspabi_srli_15              
+0000ce82  __mspabi_srli_2               
+0000ce7e  __mspabi_srli_3               
+0000ce7a  __mspabi_srli_4               
+0000ce76  __mspabi_srli_5               
+0000ce72  __mspabi_srli_6               
+0000ce6e  __mspabi_srli_7               
+0000ce6a  __mspabi_srli_8               
+0000ce66  __mspabi_srli_9               
+0000d4b8  _c_int00_noargs               
+0000fffe  _reset_vector                 
+000003b0  _stack                        
+0000d734  _system_post_cinit            
+0000d730  _system_pre_init              
+0000d70c  abort                         
+0000cc38  appInit                       
+0000c78c  appRun                        
+0000c8b0  bujiaControlInit              
+0000ca34  bujiaControlWrite             
+0000d3d8  bujiaInit                     
+0000d688  bujiaSetAngle                 
+0000d696  bujiaUpdate                   
+00000312  can_receive_msg_length        
+000002ec  can_received                  
+00000313  can_send_msg_length           
+00000308  can_to_send                   
+0000d06e  commsInit                     
+0000d2a2  getRpmCalculadas              
+0000c4ea  gpioMode                      
+0000cbd8  gpioWrite                     
+0000c000  hwSetTimer                    
+0000d61c  hwTimerGetCCR1                
+0000d242  hwTimerInit                   
+0000d62c  hwTimerSetCCR0                
+0000d63c  hwTimerSetCCR1                
+0000cc96  inputCaptureInit              
+0000d712  inputCaptureRead              
+0000d4d4  isr_Timer0_CCR0               
+0000d3fa  isr_Timer0_CCR1               
+0000d4ee  isr_Timer1_CCR0               
+0000d41a  isr_Timer1_CCR1               
+0000d43a  isr_receive                   
+0000d45a  isr_transmit                  
+0000030f  joystickVal                   
+0000d6d4  main                          
+0000d5fa  memcpy                        
+0000d14a  motorInit                     
+0000cdf2  motorUpdate                   
+0000d34c  optoInit                      
+0000d49a  optoUpdate                    
+0000030a  phi1                          
+0000030c  phi2                          
+0000c81e  pwmInit                       
+0000d17e  pwmWrite                      
+0000d6de  readOpto                      
+0000d718  readOptoVal                   
+0000cf64  recorrerCallbacks             
+00000310  rpmCalculadas                 
+00000311  rpmMedidas                    
+0000d02e  rtiSubmitCallback             
+0000cda2  rti_Capture_CCR1              
+0000d64c  rti_Overflow_CCR0             
+0000ced6  rti_bujia                     
+0000d508  rti_isr_wdt                   
+0000ce8c  setCLK                        
+0000c5f6  setRTI                        
+0000d47a  sincronizarBujia              
+0000d704  stopWDT                       
+0000d370  systemInit                    
+0000d71e  uartGetChar                   
+0000d1b0  uartInit                      
+0000d724  uartPutChar                   
+0000d272  uart_receive_rti              
+0000d0a8  uart_transmit_rti             
+0000d568  update_t_on0                  
+0000d57e  update_t_on1                  
+0000d594  update_t_periodo0             
+0000d5aa  update_t_periodo1             
+0000d6e8  writeBujia                    
+0000d72a  writeBujiaVal                 
+0000d6f2  writeMotor                    
+0000d6a4  writeVelMotor                 
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  IE1                           
+00000001  IE2                           
+00000002  IFG1                          
+00000003  IFG2                          
+00000010  P3REN                         
+00000018  P3IN                          
+00000019  P3OUT                         
+0000001a  P3DIR                         
+0000001b  P3SEL                         
+00000020  P1IN                          
+00000021  P1OUT                         
+00000022  P1DIR                         
+00000023  P1IFG                         
+00000024  P1IES                         
+00000025  P1IE                          
+00000026  P1SEL                         
+00000027  P1REN                         
+00000028  P2IN                          
+00000029  P2OUT                         
+0000002a  P2DIR                         
+0000002b  P2IFG                         
+0000002c  P2IES                         
+0000002d  P2IE                          
+0000002e  P2SEL                         
+0000002f  P2REN                         
+00000041  P1SEL2                        
+00000042  P2SEL2                        
+00000043  P3SEL2                        
+00000048  ADC10DTC0                     
+00000049  ADC10DTC1                     
+0000004a  ADC10AE0                      
+00000050  __STACK_SIZE                  
+00000053  BCSCTL3                       
+00000056  DCOCTL                        
+00000057  BCSCTL1                       
+00000058  BCSCTL2                       
+00000059  CACTL1                        
+0000005a  CACTL2                        
+0000005b  CAPD                          
+0000005d  UCA0ABCTL                     
+0000005e  UCA0IRTCTL                    
+0000005f  UCA0IRRCTL                    
+00000060  UCA0CTL0                      
+00000061  UCA0CTL1                      
+00000062  UCA0BR0                       
+00000063  UCA0BR1                       
+00000064  UCA0MCTL                      
+00000065  UCA0STAT                      
+00000066  UCA0RXBUF                     
+00000067  UCA0TXBUF                     
+00000068  UCB0CTL0                      
+00000069  UCB0CTL1                      
+0000006a  UCB0BR0                       
+0000006b  UCB0BR1                       
+0000006c  UCB0I2CIE                     
+0000006d  UCB0STAT                      
+0000006e  UCB0RXBUF                     
+0000006f  UCB0TXBUF                     
+00000118  UCB0I2COA                     
+0000011a  UCB0I2CSA                     
+0000011e  TA1IV                         
+00000120  WDTCTL                        
+00000128  FCTL1                         
+0000012a  FCTL2                         
+0000012c  FCTL3                         
+0000012e  TA0IV                         
+00000160  TA0CTL                        
+00000162  TA0CCTL0                      
+00000164  TA0CCTL1                      
+00000166  TA0CCTL2                      
+00000170  TA0R                          
+00000172  TA0CCR0                       
+00000174  TA0CCR1                       
+00000176  TA0CCR2                       
+00000180  TA1CTL                        
+00000182  TA1CCTL0                      
+00000184  TA1CCTL1                      
+00000186  TA1CCTL2                      
+00000190  TA1R                          
+00000192  TA1CCR0                       
+00000194  TA1CCR1                       
+00000196  TA1CCR2                       
+000001b0  ADC10CTL0                     
+000001b2  ADC10CTL1                     
+000001b4  ADC10MEM                      
+000001bc  ADC10SA                       
+000002ec  can_received                  
+00000308  can_to_send                   
+0000030a  phi1                          
+0000030c  phi2                          
+0000030f  joystickVal                   
+00000310  rpmCalculadas                 
+00000311  rpmMedidas                    
+00000312  can_receive_msg_length        
+00000313  can_send_msg_length           
+000003b0  _stack                        
+00000400  __STACK_END                   
+000010c0  TLV_CHECKSUM                  
+000010da  TLV_ADC10_1_TAG               
+000010db  TLV_ADC10_1_LEN               
+000010f6  TLV_DCO_30_TAG                
+000010f7  TLV_DCO_30_LEN                
+000010f8  CALDCO_16MHZ                  
+000010f9  CALBC1_16MHZ                  
+000010fa  CALDCO_12MHZ                  
+000010fb  CALBC1_12MHZ                  
+000010fc  CALDCO_8MHZ                   
+000010fd  CALBC1_8MHZ                   
+000010fe  CALDCO_1MHZ                   
+000010ff  CALBC1_1MHZ                   
+0000c000  hwSetTimer                    
+0000c4ea  gpioMode                      
+0000c5f6  setRTI                        
+0000c6dc  MCP2515_init                  
+0000c78c  appRun                        
+0000c81e  pwmInit                       
+0000c8b0  bujiaControlInit              
+0000c93e  __TI_decompress_lzss          
+0000c9ba  MCP2515_write_id              
+0000ca34  bujiaControlWrite             
+0000caa8  MCP2515_can_tx0               
+0000cb0e  MCP2515_read_id               
+0000cb74  MCP2515_can_rx0               
+0000cbd8  gpioWrite                     
+0000cc38  appInit                       
+0000cc96  inputCaptureInit              
+0000ccf2  SPI_init                      
+0000cd4a  __mspabi_divul                
+0000cd4a  __mspabi_remul                
+0000cda2  rti_Capture_CCR1              
+0000cdf2  motorUpdate                   
+0000ce40  __mspabi_srli                 
+0000ce4e  __mspabi_srli_15              
+0000ce52  __mspabi_srli_14              
+0000ce56  __mspabi_srli_13              
+0000ce5a  __mspabi_srli_12              
+0000ce5e  __mspabi_srli_11              
+0000ce62  __mspabi_srli_10              
+0000ce66  __mspabi_srli_9               
+0000ce6a  __mspabi_srli_8               
+0000ce6e  __mspabi_srli_7               
+0000ce72  __mspabi_srli_6               
+0000ce76  __mspabi_srli_5               
+0000ce7a  __mspabi_srli_4               
+0000ce7e  __mspabi_srli_3               
+0000ce82  __mspabi_srli_2               
+0000ce86  __mspabi_srli_1               
+0000ce8c  setCLK                        
+0000ced6  rti_bujia                     
+0000cf1e  MCP2515_write_many_registers  
+0000cf64  recorrerCallbacks             
+0000cfaa  MCP2515_bit_modify            
+0000cfec  __TI_auto_init_nobinit_nopinit
+0000d02e  rtiSubmitCallback             
+0000d06e  commsInit                     
+0000d0a8  uart_transmit_rti             
+0000d0e0  MCP2515_write                 
+0000d116  MCP2515_read                  
+0000d14a  motorInit                     
+0000d17e  pwmWrite                      
+0000d1b0  uartInit                      
+0000d1e2  MCP2515_CanVariable_init      
+0000d212  Port_1                        
+0000d242  hwTimerInit                   
+0000d272  uart_receive_rti              
+0000d2a2  getRpmCalculadas              
+0000d2ce  __mspabi_srai                 
+0000d2da  __mspabi_srai_15              
+0000d2dc  __mspabi_srai_14              
+0000d2de  __mspabi_srai_13              
+0000d2e0  __mspabi_srai_12              
+0000d2e2  __mspabi_srai_11              
+0000d2e4  __mspabi_srai_10              
+0000d2e6  __mspabi_srai_9               
+0000d2e8  __mspabi_srai_8               
+0000d2ea  __mspabi_srai_7               
+0000d2ec  __mspabi_srai_6               
+0000d2ee  __mspabi_srai_5               
+0000d2f0  __mspabi_srai_4               
+0000d2f2  __mspabi_srai_3               
+0000d2f4  __mspabi_srai_2               
+0000d2f6  __mspabi_srai_1               
+0000d2fa  __mspabi_slli                 
+0000d306  __mspabi_slli_15              
+0000d308  __mspabi_slli_14              
+0000d30a  __mspabi_slli_13              
+0000d30c  __mspabi_slli_12              
+0000d30e  __mspabi_slli_11              
+0000d310  __mspabi_slli_10              
+0000d312  __mspabi_slli_9               
+0000d314  __mspabi_slli_8               
+0000d316  __mspabi_slli_7               
+0000d318  __mspabi_slli_6               
+0000d31a  __mspabi_slli_5               
+0000d31c  __mspabi_slli_4               
+0000d31e  __mspabi_slli_3               
+0000d320  __mspabi_slli_2               
+0000d322  __mspabi_slli_1               
+0000d326  __mspabi_mpyl                 
+0000d326  __mspabi_mpyl_sw              
+0000d34c  optoInit                      
+0000d370  systemInit                    
+0000d394  CANSend                       
+0000d3b6  MCP2515_reset                 
+0000d3d8  bujiaInit                     
+0000d3fa  isr_Timer0_CCR1               
+0000d41a  isr_Timer1_CCR1               
+0000d43a  isr_receive                   
+0000d45a  isr_transmit                  
+0000d47a  sincronizarBujia              
+0000d49a  optoUpdate                    
+0000d4b8  _c_int00_noargs               
+0000d4d4  isr_Timer0_CCR0               
+0000d4ee  isr_Timer1_CCR0               
+0000d508  rti_isr_wdt                   
+0000d522  CANReceive                    
+0000d53a  CANUnbuildMsg16               
+0000d552  __mspabi_divu                 
+0000d552  __mspabi_remu                 
+0000d568  update_t_on0                  
+0000d57e  update_t_on1                  
+0000d594  update_t_periodo0             
+0000d5aa  update_t_periodo1             
+0000d5c0  __TI_zero_init_nomemset       
+0000d5d4  __mspabi_mpyi                 
+0000d5d4  __mspabi_mpyi_sw              
+0000d5e8  __TI_decompress_none          
+0000d5fa  memcpy                        
+0000d60c  SPI_transmit                  
+0000d61c  hwTimerGetCCR1                
+0000d62c  hwTimerSetCCR0                
+0000d63c  hwTimerSetCCR1                
+0000d64c  rti_Overflow_CCR0             
+0000d65c  __mspabi_func_epilog_7        
+0000d65e  __mspabi_func_epilog_6        
+0000d660  __mspabi_func_epilog_5        
+0000d662  __mspabi_func_epilog_4        
+0000d664  __mspabi_func_epilog_3        
+0000d666  __mspabi_func_epilog_2        
+0000d668  __mspabi_func_epilog_1        
+0000d66c  CANStatus                     
+0000d67a  MCP2515_clear_rx0             
+0000d688  bujiaSetAngle                 
+0000d696  bujiaUpdate                   
+0000d6a4  writeVelMotor                 
+0000d6b2  CANBuildMsg8                  
+0000d6be  MCP2515_int_clear             
+0000d6ca  CANUnbuildMsg8                
+0000d6d4  main                          
+0000d6de  readOpto                      
+0000d6e8  writeBujia                    
+0000d6f2  writeMotor                    
+0000d6fc  __TI_ISR_TRAP                 
+0000d704  stopWDT                       
+0000d70c  C$$EXIT                       
+0000d70c  abort                         
+0000d712  inputCaptureRead              
+0000d718  readOptoVal                   
+0000d71e  uartGetChar                   
+0000d724  uartPutChar                   
+0000d72a  writeBujiaVal                 
+0000d730  _system_pre_init              
+0000d734  _system_post_cinit            
+0000d740  __TI_Handler_Table_Base       
+0000d746  __TI_Handler_Table_Limit      
+0000d74a  __TI_CINIT_Base               
+0000d752  __TI_CINIT_Limit              
+0000ffe0  __TI_int00                    
+0000ffe4  __TI_int02                    
+0000ffe6  __TI_int03                    
+0000ffea  __TI_int05                    
+0000ffec  __TI_int06                    
+0000ffee  __TI_int07                    
+0000fff0  __TI_int08                    
+0000fff2  __TI_int09                    
+0000fff4  __TI_int10                    
+0000fff6  __TI_int11                    
+0000fff8  __TI_int12                    
+0000fffa  __TI_int13                    
+0000fffc  __TI_int14                    
+0000fffe  _reset_vector                 
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __c_args__                    
+
+[285 symbols]
