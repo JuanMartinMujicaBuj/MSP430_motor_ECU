@@ -1,0 +1,1 @@
+"./adc_2.obj" "./bujia.obj" "./comms.obj" "./dc_motor.obj" "./gpio.obj" "./hw_timer.obj" "./inputCapture.obj" "./joystick_2.obj" "./main.obj" "./mcp2515.obj" "./optoacoplador.obj" "./pwm.obj" "./rti.obj" "./servo.obj" "./spi.obj" "./system.obj" "./uart.obj" "../lnk_msp430g2553.cmd" -llibc.a 
